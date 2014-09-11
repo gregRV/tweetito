@@ -8,7 +8,6 @@ class UserController < ApplicationController
 	end
 
 	def create
-		ap params
 		@user = User.new(user_params)
 			if @user.save
 				redirect_to user_path(@user), :notice => 'Saved A-Ok!'
