@@ -8,8 +8,13 @@ class UserController < ApplicationController
 	end
 
 	def create
-		user = User.create(user_params)
-		redirect_to user_path(user)
+		ap params
+		@user = User.new(user_params)
+			if @user.save
+				redirect_to user_path(@user), :notice => 'Saved A-Ok!'
+			else
+				redirect_to new_user_path, :notice => 'DID NOT SAVE!'
+			end
 	end
 
 	def show
@@ -19,6 +24,6 @@ class UserController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:username, :email, :password)
+		params.require(:user).permit(:username, :email, :password, :password_confirmation)
 	end
 end
