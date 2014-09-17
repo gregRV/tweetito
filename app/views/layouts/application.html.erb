@@ -10,6 +10,11 @@
 	
 	<%= link_to "Home", root_path %>
 
+	<% if logged_in? %>
+		<a href="<%= user_path(current_user) %>"><%= current_user.username %></a>
+		<a href="<%= log_out_path %>">Log Out</a> 
+	<% end %>
+
 	<%= yield %>
 
 </body>

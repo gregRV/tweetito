@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :user
 
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, only: [:new, :create]
+
+  get "/log-out" => "sessions#destroy", as: :log_out
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

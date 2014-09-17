@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
 	def create
-		ap "INSIDE SESSIONS#CREATE!!"
-		ap params
 		# The line below works, and will return either false, or the User record
 		# user = User.find_by(email: params[:email]).try(:authenticate, params[:password])
 
@@ -10,10 +8,14 @@ class SessionsController < ApplicationController
 		user = User.find_by(email: params[:email])
 		if user && user.authenticate(params[:password])
 			session[:user_id] = user.id
-			redirect_to user, notice: "SUCCESS! FOUND USER"
+			redirect_to user, notice: "You've successfully logged in."
 		else
-			flash[:notice] = "WOMP WOMP. NO USER FOUND"
-			redirect_to root_path
+			redirect_to root_path, notice: "Log in failed."
 		end
+	end
+
+	def destroy
+		session[:user_id] = nil
+		redirect_to root_path, notice: "You've successfully logged out."
 	end
 end

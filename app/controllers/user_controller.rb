@@ -10,9 +10,9 @@ class UserController < ApplicationController
 	def create
 		@user = User.new(user_params)
 			if @user.save
-				redirect_to user_path(@user), :notice => 'Saved A-Ok!'
+				redirect_to user_path(@user), :notice => 'Saved new user successfully.'
 			else
-				redirect_to new_user_path, :notice => 'DID NOT SAVE!'
+				redirect_to new_user_path, :notice => 'Failed to save new user.'
 			end
 	end
 
