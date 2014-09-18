@@ -5,10 +5,16 @@
 
 <%= link_to "Create Tweet", new_user_tweet_path(@user) %>
 
-<h3>Your Tweets</h3>
+<% if @user.tweets.any? %>
+	<h3>Your Tweets</h3>
 
-<% @user.tweets.each do |tweet| %>
+	<% @user.tweets.each do |tweet| %>
 	<li><%= tweet.created_at.strftime("%m/%d/%Y") %></li>
 	<li><%= tweet.body %></li>
 	<br>
+	<% end %>
+<% else %>
+	<h3>You don't have any Tweets</h3>
 <% end %>
+
+

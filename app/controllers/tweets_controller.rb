@@ -9,8 +9,6 @@ class TweetsController < ApplicationController
 	def create
 		ap params
 		tweet = current_user.tweets.create(tweet_params)
-		ap '*'*80
-		ap tweet
 		redirect_to user_tweet_path(current_user, tweet)
 	end
 
