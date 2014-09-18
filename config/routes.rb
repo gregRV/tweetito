@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+
   root 'landing_page#index'
 
-  resources :user
+  resources :user do
+    resources :tweets
+  end
 
   resources :sessions, only: [:new, :create]
 

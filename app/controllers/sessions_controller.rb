@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+	skip_before_action :require_login, only: [:new, :create]
+
 	def create
 		# The line below works, and will return either false, or the User record
 		# user = User.find_by(email: params[:email]).try(:authenticate, params[:password])

@@ -1,3 +1,7 @@
+<% if flash[:error] %>
+	<p><%= flash[:error] %></p>
+<% end %>
+
 <h1>Log In</h1>
 
 <%= form_tag sessions_path do %>
