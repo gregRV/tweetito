@@ -2,14 +2,14 @@ class TweetsController < ApplicationController
 	def new
 		@user = User.find(params[:user_id])
 		@tweet = Tweet.new
-		ap @user
-		ap @tweet
 	end
 
 	def create
-		ap params
-		tweet = current_user.tweets.create(tweet_params)
-		redirect_to user_tweet_path(current_user, tweet)
+		@tweet = current_user.tweets.new(tweet_params)
+		if @tweet.save
+			redirect_to user_tweet_path(current_user, @tweet)	
+		end
+		redirect_to user_path(current_user), alert: "Failed to create Tweet"
 	end
 
 	def show

@@ -1,4 +1,7 @@
-<p><%= flash[:notice] %></p>
+<% if flash[:notice] || flash[:alert]  %>
+	<p><%= flash[:notice] %></p>
+	<p><%= flash[:alert] %></p>	
+<% end %>
 
 <h1><%= @user.username %></h1>
 <h3><%= @user.email %></h3>
