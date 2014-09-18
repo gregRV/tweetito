@@ -2,3 +2,5 @@
 
 <h1><%= @user.username %></h1>
 <h3><%= @user.email %></h3>
+
+<%= link_to "Create Tweet", new_user_tweet_path(@user) %>
