@@ -17,7 +17,8 @@ class UserController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
+		# is this the correct way to eager load for a single record?
+		@user = User.includes(:tweets).find(params[:id])
 	end
 
 	private

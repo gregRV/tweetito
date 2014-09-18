@@ -4,3 +4,11 @@
 <h3><%= @user.email %></h3>
 
 <%= link_to "Create Tweet", new_user_tweet_path(@user) %>
+
+<h3>Your Tweets</h3>
+
+<% @user.tweets.each do |tweet| %>
+	<li><%= tweet.created_at.strftime("%m/%d/%Y") %></li>
+	<li><%= tweet.body %></li>
+	<br>
+<% end %>
