@@ -3,7 +3,7 @@ class LandingPageController < ApplicationController
 
 	def index
 		if logged_in?
-			redirect_to user_index_path
+			redirect_to tweets_main_path
 		end
 	end
 end

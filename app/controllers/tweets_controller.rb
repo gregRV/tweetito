@@ -1,4 +1,9 @@
 class TweetsController < ApplicationController
+	def main
+		@tweets = Tweet.order(created_at: :desc)
+		ap @tweets
+	end
+
 	def new
 		@user = User.find(params[:user_id])
 		@tweet = Tweet.new
