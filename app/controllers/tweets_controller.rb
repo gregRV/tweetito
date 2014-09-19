@@ -1,7 +1,6 @@
 class TweetsController < ApplicationController
 	def main
-		@tweets = Tweet.order(created_at: :desc)
-		ap @tweets
+		@tweets = Tweet.order(created_at: :desc).limit(10)
 	end
 
 	def new
