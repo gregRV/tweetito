@@ -6,6 +6,9 @@ class TweetsController < ApplicationController
 
 	def new
 		@user = User.find(params[:user_id])
+		if @user.id != current_user.id
+			redirect_to user_path(current_user), notice: "Access forbidden"
+		end
 		@tweet = Tweet.new
 	end
 

@@ -6,7 +6,9 @@
 <h1><%= @user.username %></h1>
 <h3><%= @user.email %></h3>
 
-<%= link_to "Create Tweet", new_user_tweet_path(@user) %>
+<% if @user.id == current_user.id %>
+	<%= link_to "Create Tweet", new_user_tweet_path(@user) %>
+<% end %>
 
 <% if @user.tweets.any? %>
 	<h3>Your Tweets</h3>
@@ -17,7 +19,7 @@
 	<br>
 	<% end %>
 <% else %>
-	<h3>You don't have any Tweets</h3>
+	<h3>No Tweets</h3>
 <% end %>
 
 
