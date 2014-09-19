@@ -1,6 +1,14 @@
 class TweetsController < ApplicationController
+	def main
+		@tweets = Tweet.order(created_at: :desc)
+		ap @tweets
+	end
+
 	def new
 		@user = User.find(params[:user_id])
+		if @user.id != current_user.id
+			redirect_to user_path(current_user), notice: "Access forbidden"
+		end
 		@tweet = Tweet.new
 	end
 
@@ -8,8 +16,9 @@ class TweetsController < ApplicationController
 		@tweet = current_user.tweets.new(tweet_params)
 		if @tweet.save
 			redirect_to user_tweet_path(current_user, @tweet)	
+		else
+			redirect_to user_path(current_user), alert: "Failed to create Tweet"
 		end
-		redirect_to user_path(current_user), alert: "Failed to create Tweet"
 	end
 
 	def show

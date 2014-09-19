@@ -1,0 +1,7 @@
+<h1>Main Tweets Page</h1>
+
+<% @tweets.each do |t| %>
+	<p>Created <%= time_ago_in_words(t.created_at) %> ago</p>
+	<p><%= t.body %></p>
+	<br>
+<% end %>
