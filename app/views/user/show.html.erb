@@ -11,7 +11,7 @@
 <% end %>
 
 <% if @user.tweets.any? %>
-	<h3>Your Tweets</h3>
+	<h3>Tweets</h3>
 
 	<% @user.tweets.each do |tweet| %>
 	<li><%= tweet.created_at.strftime("%m/%d/%Y") %></li>
