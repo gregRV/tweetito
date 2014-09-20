@@ -6,8 +6,19 @@
 <h1><%= @user.username %></h1>
 <h3><%= @user.email %></h3>
 
+<% unless @user.id == current_user.id %>
+	<%= link_to "Follow User", follows_path(:following_id => params[:id]), :method => :post %>
+<% end %>
+
 <% if @user.id == current_user.id %>
 	<%= link_to "Create Tweet", new_user_tweet_path(@user) %>
+<% end %>
+
+<h3>Following</h3>
+
+<% for f in @user.followings %>
+	<li><%= link_to f.username, user_path(f) %></li>
+	<br>
 <% end %>
 
 <% if @user.tweets.any? %>
@@ -21,5 +32,3 @@
 <% else %>
 	<h3>No Tweets</h3>
 <% end %>
-
-

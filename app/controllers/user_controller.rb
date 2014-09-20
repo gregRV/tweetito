@@ -1,4 +1,6 @@
 class UserController < ApplicationController
+	skip_before_action :require_login, :only => [:new, :create]
+
 	def index
 		@users = User.all
 	end
@@ -10,6 +12,7 @@ class UserController < ApplicationController
 	def create
 		@user = User.new(user_params)
 			if @user.save
+				session[:user_id] = @user.id
 				redirect_to user_path(@user), :notice => 'Saved new user successfully.'
 			else
 				redirect_to new_user_path, :notice => 'Failed to save new user.'
