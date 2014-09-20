@@ -7,7 +7,11 @@
 <h3><%= @user.email %></h3>
 
 <% unless @user.id == current_user.id %>
-	<%= link_to "Follow User", follows_path(:following_id => params[:id]), :method => :post %>
+	<%= link_to "Follow", follows_path(:following_id => params[:id]), :method => :post %>
+<% end %>
+
+<% if current_user.followings.include?(User.find(params[:id])) %>
+	<%= link_to "Unfollow", follow_path((params[:id])), :method => :delete %>
 <% end %>
 
 <% if @user.id == current_user.id %>
