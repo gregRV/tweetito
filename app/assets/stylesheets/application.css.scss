@@ -1,0 +1,37 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ */
+
+// RAILSCAST 268
+// RBATES recommends not relying on 'require_tree .' because it compiles
+// into individual CSS files and does not carry over Sass variables.
+// Also, there's no way to tell the LOAD-ORDER of your style sheets.
+// If we import each of our Sass files, we can solve both problems.
+// This may seem tedious as we add many files, but there's another
+// video explaining how to further organize stylesheets, and import
+// a single file (for each model) rather than importing all the indiviual.
+// More on that soon.
+@import "helper.css.scss";
+@import "layout.css.scss";
+
+@import "follows.css.scss";
+@import "landing_page.css.scss";
+@import "media_queries.css.scss";
+@import "sessions.css.scss";
+@import "tweets.css.scss";
+@import "user.css.scss";
+
+// TIP!
+// You can check if your Sass compiles correctly by viewing your
+// stylesheet on localhost:3000/assets/your_stylesheet_here.css

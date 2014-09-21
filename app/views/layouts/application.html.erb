@@ -7,16 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-	<% if logged_in? %>
-		<%= link_to "Home", tweets_main_path %>
-		<%= link_to current_user.username, user_path(current_user) %>
-		<%= link_to	"Log Out", log_out_path %>
-	<% else %>
-		<%= link_to "Home", root_path %>
-	<% end %>
-
-	<%= yield %>
+	<div class="top-nav">
+		<% if logged_in? %>
+			<%= link_to "Tweetito", tweets_main_path %>
+			<div class="right">
+				<%= link_to current_user.username, user_path(current_user) %>
+				<%= link_to	"Log Out", log_out_path %>
+			</div>
+		<% else %>
+			<%= link_to "Tweetito", root_path %>
+		<% end %>
+	</div>
+	
+	<div class="main">
+		<%= yield %>
+	</div>
 
 </body>
 </html>
