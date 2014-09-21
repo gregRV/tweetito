@@ -1,7 +1,8 @@
-<h1>Main Tweets Page</h1>
+<h1>Recent Tweets</h1>
 
 <% @tweets.each do |t| %>
-	<p>Created <%= time_ago_in_words(t.created_at) %> ago</p>
-	<p><%= t.body %></p>
-	<br>
+	<div class="tweet">
+		<p><%= link_to t.user.username, user_path(t.user) %> <span class="timestamp"><%= time_ago_in_words(t.created_at) %> ago</span></p>
+		<p><%= t.body %></p>
+	</div>
 <% end %>
