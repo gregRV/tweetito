@@ -15,7 +15,11 @@
 				<%= link_to	"log out", log_out_path %>
 			</div>
 		<% else %>
-			<%= link_to "tweetito", root_path %>
+			<%= link_to "tweetito", tweets_main_path %>
+			<div class="right">
+				<%= link_to "sign up", new_user_path %>
+				<%= link_to	"log in", new_session_path %>
+			</div>
 		<% end %>
 	</nav>
 	

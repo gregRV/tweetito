@@ -6,10 +6,8 @@
 	</div>
 </header>
 
+<div class="main-prompt">
+	<p><strong><%= link_to "Sign Up", new_user_path %></strong> || <strong><%= link_to "Log In", new_session_path %></strong></p>
+</div>
 
-
-<p><%= flash[:notice] %></p>
-
-<%= link_to "Sign Up", new_user_path %>
-<br>
-<%= link_to "Log In", new_session_path %>
+<p class="notice"><%= flash[:notice] %></p>
