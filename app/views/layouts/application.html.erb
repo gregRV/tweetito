@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="top-nav">
+	<nav class="top-nav">
 		<% if logged_in? %>
 			<%= link_to "Tweetito", tweets_main_path %>
 			<div class="right">
@@ -17,11 +17,14 @@
 		<% else %>
 			<%= link_to "Tweetito", root_path %>
 		<% end %>
-	</div>
+	</nav>
 	
 	<div class="main">
 		<%= yield %>
 	</div>
 
+	<footer>
+		<em>Crafted w/&hearts; by <%= link_to "Greg", "https://github.com/gregRV" %></em>
+	</footer>
 </body>
 </html>
