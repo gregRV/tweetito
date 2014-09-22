@@ -1,6 +1,12 @@
 class TweetsController < ApplicationController
+	skip_before_action :require_login, :only => :main
+
 	def main
-		@tweets = Tweet.order(created_at: :desc).limit(10)
+		unless logged_in?
+			redirect_to root_path
+		else
+			@tweets = Tweet.order(created_at: :desc).limit(10)
+		end
 	end
 
 	def new

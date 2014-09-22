@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tweetito</title>
+  <title>tweetito</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="top-nav">
+	<nav class="top-nav">
 		<% if logged_in? %>
-			<%= link_to "Tweetito", tweets_main_path %>
+			<%= link_to "tweetito", tweets_main_path %>
 			<div class="right">
 				<%= link_to current_user.username, user_path(current_user) %>
-				<%= link_to	"Log Out", log_out_path %>
+				<%= link_to	"log out", log_out_path %>
 			</div>
 		<% else %>
-			<%= link_to "Tweetito", root_path %>
+			<%= link_to "tweetito", tweets_main_path %>
+			<div class="right">
+				<%= link_to "sign up", new_user_path %>
+				<%= link_to	"log in", new_session_path %>
+			</div>
 		<% end %>
-	</div>
+	</nav>
 	
-	<div class="main">
+	<main>
 		<%= yield %>
-	</div>
+	</main>
 
+	<footer>
+		<em>Crafted w/&hearts; by <%= link_to "Greg", "https://github.com/gregRV" %></em>
+	</footer>
 </body>
 </html>

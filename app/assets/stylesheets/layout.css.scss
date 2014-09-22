@@ -1,23 +1,59 @@
+$off-white: #FFFEFD;
+$off-black: #191919;
 $background-main: #FFE3D1;
 $background-light: lighten($background-main, 10%);
 $background-dark-1: darken($background-main, 10%);
 $background-dark-2: darken($background-main, 20%);
 
+//////////////////////////////////////
+
 body {
 	height: 100%;
+	margin: 0;
 	background-color: $background-main;
-	color: $background-light;
+	color: $off-black;
+}
+
+main {
+	width: 90%;
+	margin: 15px auto;
+}
+
+a {
+	text-decoration: none;
+	color: $off-black;
+
+	&:hover {
+		color: $background-dark-2;
+	}
+}
+
+li {
+	list-style-type: none;
+}
+
+h1,h2,h3 {
+	color: $off-black;
+	text-align: center;
+}
+
+footer {
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }
 
 .top-nav {
 	width: 100%;
+	padding: 5px;
+	border-bottom: 1px solid $background-dark-2;
 	font-size: 20px;
-	background-color: yellow;
+	background-color: $off-white;
 	display: inline-block;
 
 	.right {
 		float: right;
-		background-color: green;
 		display: inline-block;
 
 		a {
@@ -26,17 +62,7 @@ body {
 	}
 }
 
-a {
-	text-decoration: none;
-}
-
-li {
-	list-style-type: none;
-}
-
-.main {
-	width: 90%;
-	margin: 15px auto;
- 	border: 2px solid $background-dark-1;
-	border-radius: 5px;
+.notice {
+	text-align: center;
+	color: $off-black;
 }

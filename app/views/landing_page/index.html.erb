@@ -1,7 +1,13 @@
-<h1>Here's the new landing page!</h1>
+<header id="main-page">
+	<h1>tweetito</h1>
+	<div class="small-header-translation">
+		<p>pequeños mensajes</p><hr>
+		<p>little messages</p>
+	</div>
+</header>
 
-<p><%= flash[:notice] %></p>
+<div class="main-prompt">
+	<p><strong><%= link_to "Sign Up", new_user_path %></strong> || <strong><%= link_to "Log In", new_session_path %></strong></p>
+</div>
 
-<%= link_to "Sign Up", new_user_path %>
-<br>
-<%= link_to "Log In", new_session_path %>
+<p class="notice"><%= flash[:notice] %></p>
