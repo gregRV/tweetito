@@ -2,10 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.tweet {
+@mixin headers-and-tweets {
 	background-color: $off-white;
-	border: 1px solid $background-dark-2;
 	border-radius: 15px 0;
+	border-bottom: 1px solid $background-dark-2;
+	border-right: 1px solid $background-dark-2;	
+}
+
+.tweet {
+	@include headers-and-tweets;	
 	font-size: 30px;
 	margin: 3px 0;
 	padding: 0 5px;
@@ -18,5 +23,32 @@
 	.timestamp {
 		font-size: 15px;
 		font-style: italic;
+	}
+}
+
+#main-page {
+	@include headers-and-tweets;
+	text-align: center;
+	color: $off-black;
+
+	h1 {
+		margin-bottom: 0;
+	}
+
+	.small-header-translation {
+		width: 50%;
+		margin: 0 auto;
+
+		p {
+			font-size: 15px;
+			padding: 5px 0;
+			margin: 0;
+		}
+
+		hr {
+			width: 40%;
+			margin: 0 auto;
+			padding: 0;
+		}
 	}
 }

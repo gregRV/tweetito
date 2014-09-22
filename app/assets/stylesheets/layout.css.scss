@@ -12,9 +12,18 @@ body {
 	color: $off-black;
 }
 
+main {
+	width: 90%;
+	margin: 15px auto;
+}
+
 a {
 	text-decoration: none;
 	color: $off-black;
+
+	&:hover {
+		color: $background-dark-2;
+	}
 }
 
 li {
@@ -48,9 +57,4 @@ footer {
 			margin-left: 20px;
 		}
 	}
-}
-
-.main {
-	width: 90%;
-	margin: 15px auto;
 }
