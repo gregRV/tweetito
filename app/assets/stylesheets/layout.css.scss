@@ -5,6 +5,8 @@ $background-light: lighten($background-main, 10%);
 $background-dark-1: darken($background-main, 10%);
 $background-dark-2: darken($background-main, 20%);
 
+//////////////////////////////////////
+
 body {
 	height: 100%;
 	margin: 0;
@@ -32,6 +34,7 @@ li {
 
 h1,h2,h3 {
 	color: $off-black;
+	text-align: center;
 }
 
 footer {

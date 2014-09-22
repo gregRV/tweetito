@@ -1,2 +1,11 @@
- // COLORS
- // $background: #FFE3D1;
+@mixin headers-and-tweets {
+	background-color: $off-white;
+	border-radius: 15px 0;
+	border-bottom: 1px solid $background-dark-2;
+	border-right: 1px solid $background-dark-2;	
+}
+
+@mixin new-session-and-user-form {
+	@include headers-and-tweets;
+	padding: 10px 0;
+}
