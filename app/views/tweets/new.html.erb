@@ -8,7 +8,9 @@
 	<li><%= m %></li>
 <% end %>
 
-<%= form_for [@user, @tweet] do |f| %>
-	<%= f.text_field :body, value: @tweet.body, placeholder: "Tweet here!" %>
-	<%= f.submit "Tweet" %>
-<% end %>
+<div class="new-tweet-form">
+	<%= form_for [@user, @tweet] do |f| %>
+		<%= f.text_area :body, value: @tweet.body, size: "30x10", required: true %>
+		<%= f.submit "Tweet" %>
+	<% end %>
+</div>

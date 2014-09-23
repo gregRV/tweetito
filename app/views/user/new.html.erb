@@ -4,10 +4,10 @@
 
 <div class="new-user-form">
 	<%= form_for @user, url: {action: "create"} do |f| %>
-		<%= f.text_field :username, placeholder: "Username" %>
-		<%= f.email_field :email, placeholder: "Email" %>
-		<%= f.password_field :password, placeholder: "Password"%>
-		<%= f.password_field :password_confirmation, placeholder: "Confirm Password"%>
+		<%= f.text_field :username, placeholder: "Username", required: true %>
+		<%= f.email_field :email, placeholder: "Email", required: true %>
+		<%= f.password_field :password, placeholder: "Password", required: true %>
+		<%= f.password_field :password_confirmation, placeholder: "Confirm Password", required: true %>
 		<%= f.submit "Submit" %>
 	<% end %>
 </div>
