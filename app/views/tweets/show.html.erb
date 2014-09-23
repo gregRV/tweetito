@@ -1,5 +1,6 @@
 <h1>Your Tweet</h1>
 
-<p><%= @tweet.body %></p>
-
-<p>Created <%= time_ago_in_words(@tweet.created_at) %> ago</p>
+<div class="tweet">
+	<p class="timestamp">Created <%= time_ago_in_words(@tweet.created_at) %> ago</p>
+	<p><%= @tweet.body %></p>
+</div>

@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
-	has_many :tweets
+	# via StackOverflow
+	# In Rails 4, :order has been deprecated and needs to be
+	# replaced with lambda scope block. Note that this scope
+	# block needs to be passed before any other association
+	# options such as dependent: :destroy etc.
+	has_many :tweets, -> { order(created_at: :desc) }
 
 	has_many :follows
 	has_many :followings, :through => :follows	

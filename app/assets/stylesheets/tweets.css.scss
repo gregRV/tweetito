@@ -22,10 +22,3 @@
 		font-style: italic;
 	}
 }
-
-.create-tweet-link {
-	@include headers-and-tweets;
-	font-size: 30px;
-	padding: 0 5px;
-	display: block;
-}

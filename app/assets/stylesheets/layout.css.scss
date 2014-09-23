@@ -71,3 +71,10 @@ form input{
 	text-align: center;
 	color: $off-black;
 }
+
+.separated-links {
+	@include headers-and-tweets;
+	font-size: 30px;
+	padding: 0 5px;
+	display: block;
+}
