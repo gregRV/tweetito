@@ -3,34 +3,42 @@
 	<p class="notice"><%= flash[:alert] %></p>	
 <% end %>
 
-<h1><%= @user.username %></h1>
-<h3><%= @user.email %></h3>
+<div class="user-show-header">
+	<h1><%= @user.username %></h1>
+	<h3><%= @user.email %></h3>
+</div>
 
+<!-- 'FOLLOW' OR 'UNFOLLOW' LINK -->
 <% if current_user.followings.include?(User.find(params[:id])) %>
 	<%= link_to "Unfollow", follow_path((params[:id])), :method => :delete %>
 <% elsif @user.id != current_user.id %>
 	<%= link_to "Follow", follows_path(:following_id => params[:id]), :method => :post %>
 <% end %>
 
+<!-- 'CREATE TWEET' ONLY ON CURRENT USER'S SHOW PAGE -->
 <% if @user.id == current_user.id %>
-	<%= link_to "Create Tweet", new_user_tweet_path(@user) %>
+	<%= link_to "Create Tweet", new_user_tweet_path(@user), class: "create-tweet-link" %>
 <% end %>
 
+<!-- LIST OF FOLLOWERS -->
 <h3>Following</h3>
-
 <% for f in @user.followings %>
-	<li><%= link_to f.username, user_path(f) %></li>
-	<br>
+	<div class="tweet">
+		<li><%= link_to f.username, user_path(f) %></li>
+	</div>
 <% end %>
 
+<!-- LIST OF TWEETS -->
 <% if @user.tweets.any? %>
 	<h3>Tweets</h3>
-
-	<% @user.tweets.each do |tweet| %>
-	<li><%= tweet.created_at.strftime("%m/%d/%Y") %></li>
-	<li><%= tweet.body %></li>
-	<br>
-	<% end %>
+		<% @user.tweets.each do |tweet| %>
+			<div class="tweet">
+				<li class="timestamp"><%= tweet.created_at.strftime("%m/%d/%Y") %></li>
+				<li><%= tweet.body %></li>
+			</div>
+		<% end %>
+	</div>
 <% else %>
 	<h3>No Tweets</h3>
 <% end %>
+

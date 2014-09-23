@@ -1,3 +1,45 @@
 // Place all the styles related to the LandingPage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#main-page-header {
+	@include headers-and-tweets;
+	text-align: center;
+	color: $off-black;
+
+	h1 {
+		margin-bottom: 0;
+	}
+
+	.small-header-translation {
+		width: 50%;
+		margin: 0 auto;
+
+		p {
+			font-size: 15px;
+			padding: 5px 0;
+			margin: 0;
+		}
+
+		hr {
+			width: 40%;
+			margin: 0 auto;
+			padding: 0;
+		}
+	}
+}
+
+.main-prompt {
+	@include headers-and-tweets;
+	text-align: center;
+	margin-top: 20px;
+
+	p {
+		margin: 0;
+		padding: 5px;
+
+		strong {
+			margin: 0 10px;
+		}
+	}
+}
