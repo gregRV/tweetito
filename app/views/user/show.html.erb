@@ -9,36 +9,45 @@
 </div>
 
 <!-- 'FOLLOW' OR 'UNFOLLOW' LINK -->
-<% if current_user.followings.include?(User.find(params[:id])) %>
-	<%= link_to "Unfollow", follow_path((params[:id])), :method => :delete %>
-<% elsif @user.id != current_user.id %>
-	<%= link_to "Follow", follows_path(:following_id => params[:id]), :method => :post %>
-<% end %>
+<div class="follow-unfollow-button">
+	<% if current_user.followings.include?(User.find(params[:id])) %>
+		<%= link_to "Unfollow", follow_path((params[:id])), :method => :delete, class: "separated-links" %>
+	<% elsif @user.id != current_user.id %>
+		<%= link_to "Follow", follows_path(:following_id => params[:id]), :method => :post, class: "separated-links" %>
+	<% end %>
+</div>
 
 <!-- 'CREATE TWEET' ONLY ON CURRENT USER'S SHOW PAGE -->
-<% if @user.id == current_user.id %>
-	<%= link_to "Create Tweet", new_user_tweet_path(@user), class: "create-tweet-link" %>
-<% end %>
+<div class="create-tweet-button">
+	<% if @user.id == current_user.id %>
+		<%= link_to "Create Tweet", new_user_tweet_path(@user), class: "separated-links" %>
+	<% end %>
+</div>
 
-<!-- LIST OF FOLLOWERS -->
-<h3>Following</h3>
-<% for f in @user.followings %>
-	<div class="tweet">
-		<li><%= link_to f.username, user_path(f) %></li>
-	</div>
-<% end %>
+<!-- LIST OF FOLLOWINGS -->
+<div class="followings-list">
+	<h3>Following</h3>
+	<% for f in @user.followings %>
+		<div class="tweet">
+			<li><%= link_to f.username, user_path(f) %></li>
+		</div>
+	<% end %>
+</div>
 
 <!-- LIST OF TWEETS -->
-<% if @user.tweets.any? %>
-	<h3>Tweets</h3>
+<div class="tweets-list">
+	<% if @user.tweets.any? %>
+		<h3>Tweets</h3>
 		<% @user.tweets.each do |tweet| %>
-			<div class="tweet">
-				<li class="timestamp"><%= tweet.created_at.strftime("%m/%d/%Y") %></li>
-				<li><%= tweet.body %></li>
-			</div>
+			<a href="<%= user_tweet_path(tweet.user, tweet) %>">
+				<div class="tweet">
+					<li class="timestamp"><%= tweet.created_at.strftime("%m/%d/%Y") %></li>
+					<li><%= tweet.body %></li>
+				</div>
+			</a>
 		<% end %>
-	</div>
-<% else %>
-	<h3>No Tweets</h3>
-<% end %>
-
+		</div>
+	<% else %>
+		<h3>No Tweets</h3>
+	<% end %>
+</div>

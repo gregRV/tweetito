@@ -1,8 +1,9 @@
 <h1>Recent Tweets</h1>
 
-<% @tweets.each do |t| %>
+<% @tweets.each do |tweet| %>
 	<div class="tweet">
-		<p><%= link_to t.user.username, user_path(t.user) %> <span class="timestamp"><%= time_ago_in_words(t.created_at) %> ago</span></p>
-		<p><%= t.body %></p>
+		<li><%= link_to tweet.user.username, user_path(tweet.user) %> <span class="timestamp"><%= time_ago_in_words(tweet.created_at) %> ago</span></li>
+		<li><%= tweet.body %></li>
 	</div>
 <% end %>
+
