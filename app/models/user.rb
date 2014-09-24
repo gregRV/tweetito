@@ -6,8 +6,12 @@ class User < ActiveRecord::Base
 	# options such as dependent: :destroy etc.
 	has_many :tweets, -> { order(created_at: :desc) }
 
+
+	# Self-Referential Association, via RailsCast 163
 	has_many :follows
-	has_many :followings, :through => :follows	
+	has_many :followings, :through => :follows
+	has_many :inverse_follows, :class_name => "Follow", :foreign_key => "following_id"
+	has_many :followers, :through => :inverse_follows, :source => :user
 
 	# Adds methods to set and authenticate against a BCrypt password. 
 	# This mechanism requires you to have a password_digest attribute.

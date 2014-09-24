@@ -34,6 +34,16 @@
 	<% end %>
 </div>
 
+<!-- LIST OF FOLLOWERS -->
+<div class="followers-list">
+	<h3>Followers</h3>
+	<% for f in @user.followers %>
+		<div class="tweet">
+			<li><%= link_to f.username, user_path(f) %></li>
+		</div>
+	<% end %>
+</div>
+
 <!-- LIST OF TWEETS -->
 <div class="tweets-list">
 	<% if @user.tweets.any? %>
