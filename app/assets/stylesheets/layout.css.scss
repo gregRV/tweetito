@@ -7,9 +7,14 @@ $background-dark-2: darken($background-main, 20%);
 
 //////////////////////////////////////
 
+html {
+	// added so we can have sticky-footer
+	position: relative;
+	min-height: 100%;
+}
+
 body {
-	height: 100%;
-	margin: 0;
+	margin: 0 0 50px;
 	background-color: $background-main;
 	color: $off-black;
 }
@@ -17,6 +22,16 @@ body {
 main {
 	width: 90%;
 	margin: 15px auto;
+}
+
+footer {
+	// position is 'absolute' for sticky-footer effect
+	position: absolute;
+	text-align: center;
+	margin-top: 30px;
+	height: 20px;
+	bottom: 0;
+	width: 100%;
 }
 
 a {
@@ -35,12 +50,6 @@ li {
 h1,h2,h3 {
 	color: $off-black;
 	text-align: center;
-}
-
-footer {
-	text-align: center;
-	bottom: 0;
-	width: 100%;
 }
 
 form input{
