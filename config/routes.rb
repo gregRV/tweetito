@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :tweets
   end
 
+  resources :retweets, only: :create
+
   resources :sessions, only: [:new, :create]
 
   get "/log-out" => "sessions#destroy", as: :log_out
