@@ -38,12 +38,14 @@
 <div class="tweets-list">
 	<% if @user.tweets.any? %>
 		<h3>Tweets</h3>
-			<% @user.tweets.each do |tweet| %>
+		<% @user.tweets.each do |tweet| %>
+			<a href="<%= user_tweet_path(tweet.user, tweet) %>">
 				<div class="tweet">
 					<li class="timestamp"><%= tweet.created_at.strftime("%m/%d/%Y") %></li>
 					<li><%= tweet.body %></li>
 				</div>
-			<% end %>
+			</a>
+		<% end %>
 		</div>
 	<% else %>
 		<h3>No Tweets</h3>
