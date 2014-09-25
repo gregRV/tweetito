@@ -20,4 +20,3 @@
 ### Release 3
 - A user sees a responsively styled site
 - A user can retweet others' status updates
-- A user can link a gravatar image

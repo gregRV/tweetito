@@ -9,3 +9,13 @@
 	@include headers-and-tweets;
 	padding: 10px 0;
 }
+
+// Helpful box-sizing explanation here:
+// http://css-tricks.com/almanac/properties/b/box-sizing/
+// Used to keep the nav bar within the page.
+// Without box-sizing, the link furthest right spilt off the page
+@mixin box-sizing {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
