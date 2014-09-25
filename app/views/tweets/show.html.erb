@@ -1,6 +1,13 @@
-<h1>Your Tweet</h1>
+<h1>Tweet</h1>
+
+<% if flash[:notice] %>
+	<p class="notice"><%= flash[:notice] %></p>
+<% end %>
 
 <div class="tweet">
 	<p class="timestamp">Created <%= time_ago_in_words(@tweet.created_at) %> ago</p>
 	<p><%= @tweet.body %></p>
+	<% unless current_user.id == @tweet.user.id %>
+		<%= link_to "&#8634;".html_safe, retweets_path(tweet_id: @tweet.id), method: "post" %>
+	<% end %>
 </div>

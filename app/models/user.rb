@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 	# block needs to be passed before any other association
 	# options such as dependent: :destroy etc.
 	has_many :tweets, -> { order(created_at: :desc) }
-
+	has_many :retweets
 
 	# Self-Referential Association, via RailsCast 163
 	has_many :follows

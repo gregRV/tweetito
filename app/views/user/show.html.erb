@@ -61,3 +61,15 @@
 		<h3>No Tweets</h3>
 	<% end %>
 </div>
+
+<!-- LIST OF RETWEETS -->
+<div class="retweets-list">
+	<h3>Retweets</h3>
+	<% for rt in @user.retweets %>
+		<div class="tweet">
+			<li class="timestamp"><%= rt.user.username %> RT'd on <%= rt.created_at.strftime("%m/%d/%Y") %></li>
+			<li><%= rt.tweet.user.username %></li>
+			<li><%= rt.tweet.body %></li>
+		</div>
+	<% end %>
+</div>

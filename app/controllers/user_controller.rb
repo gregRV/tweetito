@@ -22,6 +22,7 @@ class UserController < ApplicationController
 	def show
 		# is this the correct way to eager load for a single record?
 		@user = User.includes(:tweets).find(params[:id])
+		# figure out good way to include :retweets as well!
 	end
 
 	private
